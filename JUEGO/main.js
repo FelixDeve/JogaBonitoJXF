@@ -12,6 +12,9 @@ let timerInicial = timer;
 let tiempoRegresivoId = null;
 
 //Apuntado a documento html
+let mostrarTiempo = document.getElementById('t-restantes');
+let mostrarMovimientos = document.getElementById('Movimientos');
+let mostrarAciertos = document.getElementById('aciertos');
 
 //Generacion de numeros aleatorios
 let numeros = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
@@ -73,7 +76,6 @@ function destapar(id){
         
         //incrementar movimientos
         Movimientos++;
-        let mostrarMovimientos = document.getElementById('Movimientos');
         mostrarMovimientos.innerHTML = `Movimientos ${Movimientos}`;
 
         if(primerResultado == segundoResultado){
@@ -90,10 +92,8 @@ function destapar(id){
                 let winAudio = new Audio('./sounds/win.wav');
                 winAudio.play();
                 clearInterval(tiempoRegresivoId);
-                let mostrarAciertos = document.getElementById('aciertos');
                 mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 😋`
-                
-                let mostrarTiempo = document.getElementById('t-restantes');
+               
                 mostrarTiempo.innerHTML = `Fantastico!! 🥳 solo demoraste ${timerInicial - timer} segundos`;
                 mostrarMovimientos.innerHTML = `Movimientos: ${Movimientos}`;
             }
